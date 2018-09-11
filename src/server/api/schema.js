@@ -696,7 +696,7 @@ const rootMutations = {
         })
       }
       const campaign = await Campaign.get(assignment.campaign_id)
-      if (!campaign.use_dynamic_assignment) {
+      if (!campaign.use_dynamic_assignment || assignment.max_contacts === 0) {
         return { found: false }
       }
 
